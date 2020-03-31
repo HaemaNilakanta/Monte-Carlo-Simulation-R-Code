@@ -45,9 +45,22 @@
    # x-axis range for plotting and true density values
      xrange = seq(1.9, 5, by=0.01)
      f.true = f.truncatednormal(xrange,c=2)
-     
+
 	#histogram of the output 
 	hist(truncatedvals, freq=FALSE, breaks=30, 
 	     xlim=c(1.9, 5), ylim=c(0,max(f.true)), 
 	     main="")
 	   lines(f.true~xrange, col="blue", lty=1, lw=3) #true density 
+
+
+# Monte Carlo estimate and standard error #
+
+	# MC estimate 
+	# mean of truncated normal
+	mean(truncatedvals)
+
+	# MCSE of estimated mean
+	mcse_tn = sd(truncatedvals)/sqrt(m)
+
+	# 90% confidence interval
+	mean(truncatedvals)+c(-1,1)*qnorm(0.95)*mcse_tn
