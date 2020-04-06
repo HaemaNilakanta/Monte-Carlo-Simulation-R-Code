@@ -75,11 +75,12 @@
 	 f.true_originalscale = f.truncatednormal(xrange_originalscale, c=28, mu=mean_hours, sigma=sd_hours)
 
 	 	#histogram of the output 
+	 pdf("histAcceptReject_originalscale.pdf")
 	hist(truncatedvals_originalscale, freq=FALSE, breaks=30, 
 	     xlim=c(min(xrange_originalscale), max(xrange_originalscale)), ylim=c(0,max(f.true_originalscale)), 
-	     main="")
+	     main="", xlab="Hours Studied Per Week")
 	   lines(f.true_originalscale~xrange_originalscale, col="blue", lty=1, lw=3) #true density 
-
+	   dev.off()
 
 # Monte Carlo estimate and standard error #
 
