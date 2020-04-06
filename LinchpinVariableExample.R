@@ -5,6 +5,8 @@
 
 	# Generate data 
 	n=100; p=3
+
+	# Make a fake dataset of indpendent variables
 	X = matrix(rnorm(n*p), nrow=n, ncol=p)
 	beta.true = c(3.5, 1, -0.5)
 	sigma.true = 1
@@ -46,7 +48,7 @@
 	cbind(beta90credible, quantile(sigma.vals, c(0.1,0.9))) 
 
 # Plotting results 
-	
+
 	# histograms in a 2x2 grid with estimated density overlay
 	par(mfrow=c(2,2))
 	hist(beta.vals[,1], freq=FALSE, main="")
