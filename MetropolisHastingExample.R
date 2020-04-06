@@ -1,9 +1,22 @@
 	## Metropolis-Hasting example R code ##
 
-	# set seed for reproducibility 
-	set.seed(621)
-
 	# Use same data as Linchpin Method
+		# set seed for reproducibility 
+		set.seed(331)
+
+		# Generate data 
+		n=100; p=3
+
+		# Make a fake dataset of indpendent variables
+		X = matrix(rnorm(n*p), nrow=n, ncol=p)
+		beta.true = c(3.5, 1, -0.5)
+		sigma.true = 1
+		y.vals = X%*%beta.true + rnorm(n, mean=0, sd=sigma.true)
+
+
+	# set new seed for reproducibility 
+	set.seed(621)
+	
 	# create a log-likelihood function
 	loglike.func <- function(y, X, beta, sigmasquared, a, b){
 	    n = length(y)
